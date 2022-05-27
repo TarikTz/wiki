@@ -282,6 +282,9 @@ export default {
       ],
       imageAlignment: '',
       imageClass: '',
+      borderSize: 0,
+      borderColor: '#000',
+      showCaption: false,
       loading: false,
       newFolderDialog: false,
       newFolderName: '',
@@ -389,7 +392,10 @@ export default {
         path: this.currentFolderId > 0 ? `/${assetPath}/${asset.filename}` : `/${asset.filename}`,
         text: asset.filename,
         align: this.imageAlignment,
-        className: this.imageClass
+        className: this.imageClass,
+        border: this.borderSize,
+        borderColor: this.borderColor,
+        caption: this.showCaption
       })
       this.activeModal = ''
     },

@@ -227,6 +227,7 @@ export default {
     // Render initial preview
 
     this.$root.$on('editorInsert', opts => {
+      console.log(opts)
       switch (opts.kind) {
         case 'IMAGE':
           let img = `<img src="${opts.path}" alt="${opts.text}"`
@@ -236,7 +237,12 @@ export default {
           if (opts.className && opts.className !== '') {
             img += ` class="align-${opts.className}"`
           }
+          console.log(opts.border)
+          if (opts.border && opts.border > 0) {
+            img += ` style="border: ${opts.border}px solid"`
+          }
           img += ` />`
+          console.log(img)
           this.insertAtCursor({
             content: img
           })

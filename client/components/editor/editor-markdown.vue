@@ -843,6 +843,7 @@ export default {
     this.refresh()
 
     this.$root.$on('editorInsert', opts => {
+      console.log(opts)
       switch (opts.kind) {
         case 'IMAGE':
           let img = `![${opts.text}](${opts.path})`
@@ -852,6 +853,11 @@ export default {
           if (opts.className && opts.className !== '') {
             img += `{.${opts.className}}`
           }
+          console.log(opts)
+          if (opts.border && opts.border > 0) {
+            img += `{.border}`
+          }
+          console.log(img)
           this.insertAtCursor({
             content: img
           })
